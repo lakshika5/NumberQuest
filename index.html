@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color:rgb(34, 10, 190);
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color:rgb(117, 23, 205);
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color:rgb(38, 24, 195);
+        }
+        .attempts {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color:rgb(88, 22, 222);
+            font-size: 1em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number Guessing Game</h1>
+        <p>Guess a number between 1 and 100:</p>
+
+        {% if message %}
+            <p><strong>{{ message }}</strong></p>
+        {% endif %}
+
+        <form method="post" action="/guess">
+            <input type="number" name="guess" min="1" max="100" required>
+            <button type="submit">Guess</button>
+        </form>
+
+        <div class="attempts">Number of attempts: {{ attempts }}</div>
+        <a href="/">Restart Game</a>
+    </div>
+</body>
+</html>
