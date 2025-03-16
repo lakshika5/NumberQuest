@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Initialize game variables
+
 secret_number = random.randint(1, 100)
 attempts = 0
 
@@ -26,7 +26,7 @@ def guess():
         message = "Your guess is too low!"
     else:
         message = f"Congratulations! You've guessed the number in {attempts} attempts. Wanna play again? Click Restart!"
-        secret_number = random.randint(1, 100)  # Reset the game
+        secret_number = random.randint(1, 100)  
     
     return render_template('index.html', message=message, attempts=attempts)
 
